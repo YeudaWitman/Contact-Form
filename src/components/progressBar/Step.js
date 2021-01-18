@@ -2,15 +2,20 @@ import React from "react";
 
 const Step = (props) => {
 	const active = props.active ? "active" : "";
-	//first indicator line not render
+	const { step } = props;
+
 	return (
 		<>
-			{props.step > 1 ? (
-				<div className={`indicator-line ${active}`}></div>
-			) : null}
+			{
+				step.number > 1 ? (
+					<div className={`indicator-line ${active}`}></div>
+				) : null /*do not render the first indicator line*/
+			}
 			<div className={`step ${active}`}>
-				<div className="step-icon">{props.step}</div>
-				<p>{props.title}</p>
+				<div className="step-icon">
+					<i className={step.icon}></i>
+				</div>
+				<p>{step.title}</p>
 			</div>
 		</>
 	);

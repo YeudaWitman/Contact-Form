@@ -6,6 +6,7 @@ import FormStep from "./FormStep";
 
 const Form = (props) => {
 	const { formStep } = props;
+
 	return (
 		<div className="form-wrapper">
 			<form>

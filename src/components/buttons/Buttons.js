@@ -17,10 +17,25 @@ const Buttons = (props) => {
 		dispatch(actions.setStep(currentStep - 1));
 	};
 
+	const PrevButtonClass = start < currentStep ? "" : "disabled";
+	const NextButtonClass = end > currentStep ? "" : "disabled";
+
 	return (
 		<div className="buttons-wrapper">
-			{start < currentStep ? <button onClick={handlePrev}>PREV</button> : null}
-			{end > currentStep ? <button onClick={handleNext}>NEXT</button> : null}
+			<button
+				className={PrevButtonClass}
+				onClick={handlePrev}
+				disabled={!!PrevButtonClass}
+			>
+				back
+			</button>
+			<button
+				className={NextButtonClass}
+				onClick={handleNext}
+				disabled={!!NextButtonClass}
+			>
+				continue
+			</button>
 		</div>
 	);
 };

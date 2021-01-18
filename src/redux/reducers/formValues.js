@@ -1,15 +1,16 @@
 import * as types from "../actions/types";
+import { inputStatus } from "../../utils/globals";
 
 const initValues = {
-	firstName: "",
-	lastName: "",
-	title: "",
-	country: "",
-	city: "",
-	street: "",
-	number: "",
-	email: "",
-	phone: "",
+	firstName: { value: "", status: inputStatus.pristine },
+	lastName: { value: "", status: inputStatus.pristine },
+	title: { value: "", status: inputStatus.pristine },
+	country: { value: "", status: inputStatus.pristine },
+	city: { value: "", status: inputStatus.pristine },
+	street: { value: "", status: inputStatus.pristine },
+	number: { value: "", status: inputStatus.pristine },
+	email: { value: "", status: inputStatus.pristine },
+	phone: { value: "", status: inputStatus.pristine },
 	rememberMe: false,
 };
 
@@ -22,4 +23,5 @@ const setFormValues = (state = initValues, action) => {
 			return state;
 	}
 };
+
 export default setFormValues;

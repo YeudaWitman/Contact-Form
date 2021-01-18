@@ -13,3 +13,10 @@ export const setFormValues = (payload) => {
 		payload,
 	};
 };
+
+export const getCountries = (payload) => {
+	return {
+		type: types.GET_COUNTRIES,
+		payload,
+	};
+};

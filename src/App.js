@@ -7,8 +7,9 @@ import Buttons from "./components/buttons/Buttons";
 
 const formSteps = [
 	{
-		step: 1,
+		number: 1,
 		title: "Personal",
+		icon: "fas fa-user",
 		fields: [
 			{ type: "text", name: "firstName", label: "First Name" },
 			{ type: "text", name: "lastName", label: "Last Name" },
@@ -16,8 +17,9 @@ const formSteps = [
 		],
 	},
 	{
-		step: 2,
+		number: 2,
 		title: "Address",
+		icon: "fas fa-map",
 		fields: [
 			{ type: "select", name: "country", label: "Country" },
 			{ type: "text", name: "city", label: "City" },
@@ -26,8 +28,9 @@ const formSteps = [
 		],
 	},
 	{
-		step: 3,
+		number: 3,
 		title: "Contactability",
+		icon: "fas fa-network-wired",
 		fields: [
 			{ type: "email", name: "email", label: "Email" },
 			{ type: "tel", name: "phone", label: "Phone Number" },
@@ -38,7 +41,7 @@ const formSteps = [
 
 const App = () => {
 	const currentStep = useSelector((state) => state.step);
-	const formStep = formSteps.find((val) => val.step === currentStep);
+	const formStep = formSteps.find((val) => val.number === currentStep);
 
 	return (
 		<div className="app">
