@@ -1,0 +1,2 @@
+export const SET_CURRENT_STEP = "SET_CURRENT_STEP";
+export const SET_FORM_VALUES = "SET_FORM_VALUES";

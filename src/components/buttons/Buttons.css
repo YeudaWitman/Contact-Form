@@ -1,0 +1,12 @@
+.buttons-wrapper {
+	margin: auto 0;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	bottom: 0;
+	width: 100%;
+}
+
+.buttons-wrapper button {
+	background-color: aquamarine;
+}
