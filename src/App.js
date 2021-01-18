@@ -40,14 +40,14 @@ const formSteps = [
 ];
 
 const App = () => {
-	const currentStep = useSelector((state) => state.step);
+	const currentStep = useSelector((state) => state.currentStep);
 	const formStep = formSteps.find((val) => val.number === currentStep);
 
 	return (
 		<div className="app">
 			<ProgressBar steps={formSteps} currentStep={currentStep} />
 			<Form formStep={formStep} />
-			<Buttons start={1} end={formSteps.length} />
+			<Buttons end={formSteps.length} />
 		</div>
 	);
 };

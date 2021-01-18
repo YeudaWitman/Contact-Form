@@ -22,22 +22,14 @@
 	padding: 0 20px;
 	width: 100px;
 	height: 50px;
-	background: rgb(81, 90, 218);
-	background: linear-gradient(
-		45deg,
-		rgba(128, 134, 221, 1) 0%,
-		rgba(81, 90, 218, 1) 100%
-	);
+	background: #515ada;
+	background: linear-gradient(45deg, #8086dd 0%, #515ada 100%);
 	cursor: pointer;
 }
 
 .buttons-wrapper button.disabled {
 	color: #000;
-	background: rgb(81, 81, 81);
-	background: linear-gradient(
-		45deg,
-		rgba(128, 128, 128, 1) 0%,
-		rgba(81, 81, 81, 1) 100%
-	);
+	background: #515151;
+	background: linear-gradient(45deg, #808080 0%, #515151 100%);
 	cursor: default;
 }

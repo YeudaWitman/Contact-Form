@@ -5,8 +5,10 @@ import * as actions from "../../redux/actions";
 import "./Buttons.css";
 
 const Buttons = (props) => {
-	const { start, end } = props;
-	const currentStep = useSelector((state) => state.step);
+	const start = 1;
+	const { end } = props;
+
+	const { currentStep, formValues } = useSelector((state) => state);
 	const dispatch = useDispatch();
 
 	const handleNext = (e) => {
@@ -20,6 +22,13 @@ const Buttons = (props) => {
 	const PrevButtonClass = start < currentStep ? "" : "disabled";
 	const NextButtonClass = end > currentStep ? "" : "disabled";
 
+	const checkFormValidation = (formValues) => {
+		for (const key in formValues) {
+			// console.log(key, formValues[key]);
+		}
+	};
+
+	checkFormValidation(formValues);
 	return (
 		<div className="buttons-wrapper">
 			<button

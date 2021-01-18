@@ -38,15 +38,9 @@ form {
 }
 
 .text-field input[type="checkbox"] {
-	color: #ee4242;
-	background-color: black;
 	margin-right: 7px;
 	line-height: 1.2;
 	font-size: 18px;
-}
-
-.text-field input[type="checkbox"]:checked + label {
-	color: #f00;
 }
 
 ::placeholder {

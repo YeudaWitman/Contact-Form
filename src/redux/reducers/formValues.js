@@ -11,7 +11,7 @@ const initValues = {
 	number: { value: "", status: inputStatus.pristine },
 	email: { value: "", status: inputStatus.pristine },
 	phone: { value: "", status: inputStatus.pristine },
-	rememberMe: false,
+	rememberMe: { value: false, status: inputStatus.pristine },
 };
 
 const setFormValues = (state = initValues, action) => {

@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import step from "./currentStep";
+import currentStep from "./currentStep";
 import formValues from "./formValues";
 import countries from "./countries";
 
 const rootReducer = combineReducers({
-	step,
+	currentStep,
 	formValues,
 	countries,
 });
