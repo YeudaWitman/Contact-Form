@@ -5,13 +5,13 @@ const initValues = {
 	firstName: { value: "", status: inputStatus.pristine },
 	lastName: { value: "", status: inputStatus.pristine },
 	title: { value: "", status: inputStatus.pristine },
-	country: { value: "", status: inputStatus.pristine },
+	country: { value: "israel", status: inputStatus.valid },
 	city: { value: "", status: inputStatus.pristine },
 	street: { value: "", status: inputStatus.pristine },
 	number: { value: "", status: inputStatus.pristine },
 	email: { value: "", status: inputStatus.pristine },
 	phone: { value: "", status: inputStatus.pristine },
-	rememberMe: { value: false, status: inputStatus.pristine },
+	rememberMe: { value: false, status: inputStatus.valid },
 };
 
 const setFormValues = (state = initValues, action) => {
