@@ -1,6 +1,5 @@
 import React from "react";
-import TextField from "./TextField";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import * as actions from "../../redux/actions";
 import { inputStatus } from "../../utils/globals";
@@ -8,14 +7,12 @@ import validation from "../../utils/validation";
 
 import "./Form.css";
 
-import CheckBox from "./CheckBox";
-import SelectField from "./SelectField";
+import InputFiled from "./InputFileds";
 
 const Form = (props) => {
 	const { formStep } = props;
-	const formFields = formStep.fields;
+	const formFields = formStep.fields; //extract fields for the current step
 
-	const formValues = useSelector((state) => state.formValues);
 	const dispatch = useDispatch();
 
 	const validateInput = (input) => {
@@ -26,7 +23,7 @@ const Form = (props) => {
 		let status = inputStatus.invalid; //init status to invalid
 
 		//validate input by type dynamicly
-		if (validation[type](value)) {
+		if (validation[type](value, name)) {
 			status = inputStatus.valid;
 		}
 		//dispatch the results
@@ -46,43 +43,15 @@ const Form = (props) => {
 		);
 	};
 
-	//iterate over the fields and render the match input type
+	//sub component to sperate the view from logic
 	return (
 		<div className="form-wrapper">
 			<form>
-				{formFields.map((field, i) => {
-					switch (field.type) {
-						case "checkbox":
-							return (
-								<CheckBox
-									key={i}
-									data={field}
-									value={formValues[field.name].value}
-									onChange={handleInputChange}
-								/>
-							);
-						case "select":
-							return (
-								<SelectField
-									key={i}
-									data={field}
-									value={formValues[field.name].value}
-									onChange={handleInputChange}
-								/>
-							);
-						default:
-							return (
-								<TextField
-									key={i}
-									data={field}
-									value={formValues[field.name].value}
-									onChange={handleInputChange}
-									onBlur={validateInput}
-									valid={formValues[field.name].status}
-								/>
-							);
-					}
-				})}
+				<InputFiled
+					formFields={formFields}
+					onBlur={validateInput}
+					onChange={handleInputChange}
+				/>
 			</form>
 		</div>
 	);

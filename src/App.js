@@ -1,53 +1,51 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+
 import "./App.css";
+import * as actions from "./redux/actions";
 
 import ProgressBar from "./components/progressBar/ProgressBar";
 import Form from "./components/form/Form";
 import Buttons from "./components/buttons/Buttons";
 
-const formSteps = [
-	{
-		number: 1,
-		title: "Personal",
-		icon: "fas fa-user",
-		fields: [
-			{ type: "text", name: "firstName", label: "First Name" },
-			{ type: "text", name: "lastName", label: "Last Name" },
-			{ type: "text", name: "title", label: "Title" },
-		],
-	},
-	{
-		number: 2,
-		title: "Address",
-		icon: "fas fa-map",
-		fields: [
-			{ type: "select", name: "country", label: "Country" },
-			{ type: "text", name: "city", label: "City" },
-			{ type: "text", name: "street", label: "Street" },
-			{ type: "text", name: "number", label: "Number" },
-		],
-	},
-	{
-		number: 3,
-		title: "Contactability",
-		icon: "fas fa-network-wired",
-		fields: [
-			{ type: "email", name: "email", label: "Email" },
-			{ type: "tel", name: "phone", label: "Phone Number" },
-			{ type: "checkbox", name: "rememberMe", label: "Remember Me" },
-		],
-	},
-];
+import formSteps from "./utils/formSteps"; //imports all the fields divided to groups
+import Modal from "./components/modal/Modal";
 
 const App = () => {
-	const currentStep = useSelector((state) => state.currentStep);
+	//manage state
+	const { currentStep, formValues, modal } = useSelector((state) => state);
+	const dispatch = useDispatch();
+
+	//returns the current group by number
 	const formStep = formSteps.find((val) => val.number === currentStep);
+
+	const handleSubmitForm = (e) => {
+		let type = "success"; //variable to define modal type [success, warning, error]
+		const URL = "http://localhost:4000/";
+		axios
+			.post(URL, formValues)
+			.then((res) => {
+				// handle success
+				if (res.data.status === 422) {
+					console.log(res.data.status);
+					type = "warning";
+				}
+				dispatch(actions.modal(type));
+			})
+			.catch((error) => {
+				// handle error
+				console.log(error);
+				type = "error";
+				dispatch(actions.modal(type));
+			});
+	};
 
 	return (
 		<div className="app">
 			<ProgressBar steps={formSteps} currentStep={currentStep} />
 			<Form formStep={formStep} />
-			<Buttons end={formSteps.length} />
+			<Buttons end={formSteps.length} submit={handleSubmitForm} />
+			{modal.show ? <Modal type={modal.type} /> : ""}
 		</div>
 	);
 };

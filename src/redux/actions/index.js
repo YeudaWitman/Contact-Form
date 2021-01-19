@@ -20,3 +20,16 @@ export const getCountries = (payload) => {
 		payload,
 	};
 };
+
+export const modal = (payload) => {
+	return {
+		type: types.MODAL_SHOW,
+		payload,
+	};
+};
+
+export const closeModal = () => {
+	return {
+		type: types.CLOSE_MODAL,
+	};
+};

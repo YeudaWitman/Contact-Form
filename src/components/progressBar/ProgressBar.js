@@ -9,7 +9,7 @@ const ProgressBar = (props) => {
 		<div className="wrapper">
 			<div className="step-indicator">
 				{steps.map((step, i) => {
-					const active = step.number <= currentStep ? true : false; //indicate wich step is active
+					const active = step.number <= currentStep ? true : false; //indicate which step is active
 					return <Step key={i} step={step} active={active} />;
 				})}
 			</div>

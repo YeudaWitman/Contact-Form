@@ -53,7 +53,8 @@ form {
 	bottom: -25px;
 }
 
-.invalid {
-	border-color: #ee4242;
+.invalid,
+.invalid input {
+	border-bottom-color: #ee4242;
 	color: #ee4242;
 }

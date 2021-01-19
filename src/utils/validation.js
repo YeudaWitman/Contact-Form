@@ -1,23 +1,45 @@
-export default {
-	text: (value) => {
+const validation = {
+	text: (value, name) => {
 		//required and alphbetes only
 		const letters = /^[A-Za-z]+$/;
-		console.log("validate text", value, value.match(letters));
+		const lettersAndNums = /^[A-Za-z0-9]*$/;
 		if (value.length < 1) {
 			return false;
 		}
-		if (value.match(letters) === null) {
-			return false;
+
+		switch (name) {
+			case "street":
+			case "number":
+				return validateMatch(value, lettersAndNums);
+			default:
+				return validateMatch(value, letters);
 		}
-		return true;
 	},
 
 	email: (value) => {
 		//required and must be a valid email
-		console.log("validate email");
+		const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+		return validateMatch(String(value).toLowerCase(), re);
 	},
+
 	tel: (value) => {
-		//required
-		console.log("validate tel");
+		//required and numbers only
+		const numbersOnly = /^[0-9]*$/;
+
+		if (value.length < 1) {
+			return false;
+		}
+
+		return validateMatch(value, numbersOnly);
 	},
 };
+
+const validateMatch = (value, reg) => {
+	if (value.match(reg) === null) {
+		return false;
+	}
+	return true;
+};
+
+export default validation;

@@ -1,8 +1,7 @@
 import React from "react";
 
 const TextField = ({ data, value, onChange, onBlur, valid }) => {
-	const { label, type, name } = data;
-
+	const { label, type, name, errMsg } = data;
 	return (
 		<div className={`text-field ${valid}`}>
 			<label>
@@ -18,7 +17,7 @@ const TextField = ({ data, value, onChange, onBlur, valid }) => {
 				/>
 			</label>
 			<br />
-			<small>{valid === "invalid" ? "invalid" : ""}</small>
+			{valid === "invalid" ? <small>{errMsg}</small> : ""}
 		</div>
 	);
 };
