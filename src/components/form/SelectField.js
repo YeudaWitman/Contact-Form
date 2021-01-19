@@ -19,10 +19,7 @@ const SelectField = ({ data, value, onChange }) => {
 			})
 			.catch((error) => {
 				// handle error
-				console.log(error);
-			})
-			.then(() => {
-				// always executed
+				dispatch(actions.getCountries(["can't load countries, try later"]));
 			});
 	}, [dispatch]);
 
