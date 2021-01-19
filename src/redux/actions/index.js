@@ -14,6 +14,12 @@ export const setFormValues = (payload) => {
 	};
 };
 
+export const resetForm = () => {
+	return {
+		type: types.RESET_FORM,
+	};
+};
+
 export const getCountries = (payload) => {
 	return {
 		type: types.GET_COUNTRIES,

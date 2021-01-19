@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { closeModal } from "../../redux/actions";
+import { closeModal, resetForm, setStep } from "../../redux/actions";
 import Button from "../buttons/Button";
 import "./Modal.css";
 
@@ -24,6 +24,8 @@ const Modal = ({ type }) => {
 
 	const handeClose = () => {
 		dispatch(closeModal());
+		dispatch(resetForm());
+		dispatch(setStep(1));
 	};
 
 	return (

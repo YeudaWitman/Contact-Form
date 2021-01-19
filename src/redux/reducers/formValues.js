@@ -19,6 +19,8 @@ const setFormValues = (state = initValues, action) => {
 		case types.SET_FORM_VALUES:
 			const key = Object.keys(action.payload)[0];
 			return { ...state, [key]: action.payload[key] };
+		case types.RESET_FORM:
+			return initValues;
 		default:
 			return state;
 	}
