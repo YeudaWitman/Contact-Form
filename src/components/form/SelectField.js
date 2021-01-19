@@ -6,6 +6,7 @@ import * as actions from "../../redux/actions";
 
 const SelectField = ({ data, value, onChange }) => {
 	const { label, name } = data;
+
 	const countriesList = useSelector((state) => state.countries);
 	const dispatch = useDispatch();
 
