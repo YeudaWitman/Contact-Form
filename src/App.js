@@ -33,7 +33,6 @@ const App = () => {
 			})
 			.catch((error) => {
 				// handle error
-				console.log(error);
 				type = "error";
 				dispatch(actions.modal(type));
 			});
