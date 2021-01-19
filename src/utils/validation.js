@@ -3,14 +3,17 @@ const validation = {
 		//required and alphbetes only
 		const letters = /^[A-Za-z]+$/;
 		const lettersAndNums = /^[A-Za-z0-9]*$/;
+		const lettersAndNumsAndSpaces = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/;
 		if (value.length < 1) {
 			return false;
 		}
 
 		switch (name) {
-			case "street":
 			case "number":
 				return validateMatch(value, lettersAndNums);
+			case "street":
+			case "city":
+				return validateMatch(value, lettersAndNumsAndSpaces);
 			default:
 				return validateMatch(value, letters);
 		}
