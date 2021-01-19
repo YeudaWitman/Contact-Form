@@ -8,6 +8,12 @@ body {
 	font-family: "Poppins", "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background: rgb(81, 90, 218);
+	background: linear-gradient(
+		90deg,
+		rgba(81, 90, 218, 1) 0%,
+		rgba(128, 134, 221, 1) 100%
+	);
 }
 
 code {
