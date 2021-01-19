@@ -18,8 +18,6 @@ const Form = (props) => {
 	const validateInput = (input) => {
 		const { type, name, value } = input;
 
-		console.log(`type: [${type}], name: [${name}], value: [${value}]`);
-
 		let status = inputStatus.invalid; //init status to invalid
 
 		//validate input by type dynamicly
