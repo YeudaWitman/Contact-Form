@@ -27,7 +27,6 @@ const App = () => {
 			.then((res) => {
 				// handle success
 				if (res.data.status === 422) {
-					console.log(res.data.status);
 					type = "warning";
 				}
 				dispatch(actions.modal(type));
