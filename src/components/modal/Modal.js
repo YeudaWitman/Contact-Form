@@ -18,7 +18,7 @@ const Modal = ({ type }) => {
 		},
 		error: {
 			heading: "Form submission failed!",
-			message: "Please try agan later0",
+			message: "Please try agan later.",
 		},
 	};
 
